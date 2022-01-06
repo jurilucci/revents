@@ -7,12 +7,21 @@ import HomePage from "../../features/home/HomePage";
 import EventForm from "../../features/events/eventForm/EventForm";
 import EventDetailedPage from "../../features/events/eventDetailed/EventDetailedPage";
 import Sandbox from "../../features/sandbox/Sandbox";
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import it from 'date-fns/locale/es';
+import ModalManager from './../common/modals/ModalManager';
+import { ToastContainer } from 'react-toastify';
+
+registerLocale('it', it);
+setDefaultLocale('it');
 
 function App() {
   const {key} = useLocation();
 
   return (
     <>
+      <ModalManager />
+      <ToastContainer position="bottom-right" />
       <Route exact path='/' component={HomePage} />
       <Route
         path={"/(.+)"}
